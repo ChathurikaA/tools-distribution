@@ -68,10 +68,13 @@ public class JMSServiceSampleTestCase extends IntegrationTestCase {
      *
      * @throws Exception if stopping of any of the above fails
      */
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     private void cleanup() throws Exception {
-        broker.stop();
-        ballerinaServer.stopServer();
+        try {
+            broker.stop();
+        } finally {
+            ballerinaServer.stopServer();
+        }
     }
 
     @Test(description = "Test simple JMS message send and receive via ballerina")

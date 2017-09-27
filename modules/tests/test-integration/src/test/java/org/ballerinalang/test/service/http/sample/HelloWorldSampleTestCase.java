@@ -56,7 +56,7 @@ public class HelloWorldSampleTestCase extends IntegrationTestCase {
         Assert.assertEquals(response.getData(), "Hello, World!", "Message content mismatched");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     private void cleanup() throws Exception {
         ballerinaServer.stopServer();
     }

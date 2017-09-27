@@ -66,7 +66,7 @@ public class ServiceChainingSampleTestCase extends IntegrationTestCase {
         Assert.assertEquals(response.getData(), responseMessage, "Message content mismatched");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     private void cleanup() throws Exception {
         ballerinaServer.stopServer();
     }

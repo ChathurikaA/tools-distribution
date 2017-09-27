@@ -107,10 +107,14 @@ public class WebSocketPassThroughTestCase extends WebSocketIntegrationTest {
         Assert.assertTrue(isConnectionClosed);
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     private void cleanup() throws Exception {
-        shutDownAllClients(wsClients);
-        ballerinaServer.stopServer();
-        webSocketRemoteServer.stop();
+        try {
+            shutDownAllClients(wsClients);
+        } finally {
+            ballerinaServer.stopServer();
+            webSocketRemoteServer.stop();
+        }
+
     }
 }

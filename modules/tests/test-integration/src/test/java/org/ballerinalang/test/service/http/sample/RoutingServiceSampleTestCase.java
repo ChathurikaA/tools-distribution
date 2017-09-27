@@ -102,7 +102,7 @@ public class RoutingServiceSampleTestCase extends IntegrationTestCase {
                 , "Message content mismatched. Routing failed for nasdaq");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     private void cleanup() throws Exception {
         ballerinaServer.stopServer();
     }

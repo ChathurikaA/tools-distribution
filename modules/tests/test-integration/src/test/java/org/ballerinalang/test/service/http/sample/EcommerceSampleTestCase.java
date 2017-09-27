@@ -127,7 +127,7 @@ public class EcommerceSampleTestCase extends IntegrationTestCase {
                 , "Message content mismatched");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     private void cleanup() throws Exception {
         ballerinaServer.stopServer();
     }
